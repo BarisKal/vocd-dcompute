@@ -6,27 +6,7 @@ For measuring lexical diversity (LD), a method called _D_ was developed by Malve
 The original implementation can be found at https://dali.talkbank.org/clan/ (last visited 05.01.2025).
 
 Detailed explanation of D can be found in:
-
-nocite: "[@*]"
-references:
-
-- author:
-  - family: Malvern
-    given: D.
-  - family: Richards
-    given: B.
-  - family: Chipere
-    given: N.
-  - family: Durán
-    given: P.
-    id: malvern2004lexical
-    isbn: 9780230511804
-    issued: 2004
-    publisher: Palgrave Macmillan UK
-    title: "Lexical diversity and language development: Quantification and
-    assessment"
-    title-short: Lexical diversity and language development
-    type: book
-    url: "https://link.springer.com/book/10.1057/9780230511804"
+Malvern D., Richards B., Chipere N., Durán P., 2004. Lexical diversity and language development: Quantification and assessment. Palgrave Macmillan UK.
+https://link.springer.com/book/10.1057/9780230511804
 
 ---
