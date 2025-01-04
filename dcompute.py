@@ -77,15 +77,19 @@ def t_eqn(d, n):
     return (d / n) * x
 
 
-# d_eqn
-# compute the value of D, given n and t.
 def d_eqn(n: int, ttr: float) -> float:
-
+    """
+    Calculate the D value based on the given parameters.
+    This function computes the D value using the formula:
+    D = 0.5 * ((n * ttr^2) / (1 - ttr))
+    Parameters:
+    n (int): The number of tokens.
+    ttr (float): The type-token ratio.
+    Returns:
+    float: The computed D value. If the type-token ratio is 1, the function returns 0 to avoid division by zero.
+    """
     d = 0
-    tmp = 0
-
-    tmp = 1 - ttr
-    if tmp == 0:
+    if (1 - ttr) == 0:
         return 0
 
     d = 0.5 * ((n * ttr * ttr) / (1 - ttr))
