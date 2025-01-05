@@ -184,5 +184,6 @@ def d_compute(
 
 
 if __name__ == "__main__":
-    mydmin = d_compute(test_string.split(" "), len(test_string.split()), 35, 50, 1, 100)
+    splitted_text = test_string.split(" ")
+    mydmin = d_compute(splitted_text, len(splitted_text), 35, 50, 1, 100)
     print(mydmin)
