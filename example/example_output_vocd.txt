@@ -1,0 +1,198 @@
+vocd +t*CHI +sm;*,o% -s"m|neo" +f
+Mon Jan 06 18:32:06 2025
+vocd (02-Jan-2025) is conducting analyses on:
+  ONLY dependent tiers matching: %MOR;
+****************************************
+From file <C:\clan\examples\transcripts\ne32\68.cha>
+what be in these box 
+oh 
+what be in it 
+yeah 
+ahhah 
+that be just like mine at home 
+yeah let us read it 
+like mine 
+yeah 
+Frannie 
+haha 
+yeah 
+yeah 
+uh 
+yeah 
+I 
+there 
+ahhah 
+yeah 
+here be one for you 
+I have Cookie_Monster 
+my name be Cookie_Monster and I eat cookie 
+nope I do not 
+yeah except they go up and down 
+hm 
+yup 
+moo 
+yeah 
+yeah 
+oh 
+oh 
+we can draw thing on paper 
+oh there 
+we get orange 
+orange 
+no 
+a mouth 
+that could be the lady have the on 
+how about you draw the lady with the hat 
+no make 
+that big 
+big 
+that big 
+here be some blue 
+that big 
+oh 
+yeah 
+I want to draw her lip she will sing with 
+no you make the lip 
+right here 
+no right here 
+yeah 
+she be sing with 
+open 
+yeah 
+yeah 
+no they be all do 
+yeah 
+I want to make that lady she be sing on tv 
+I want to do the lady too 
+that one 
+no you do it 
+no you do it 
+no 
+I want to do that one 
+this be so heavy 
+oh 
+that look like mine too 
+nope 
+in here 
+yup it do 
+okay 
+who be home 
+in here 
+Maude right here 
+okay 
+she want to go in the chair 
+a chair 
+on the table 
+table table table table table 
+that be my seat 
+you guy I want to sit in them 
+nope a car 
+that be mine 
+no he 
+where be his seat 
+he be get angry too 
+woofwoof 
+where be my chair 
+I want 
+vroom 
+there 
+can not reach the chair 
+there 
+who take my chair 
+in that chair 
+you do not believe it I do not believe it 
+where be my seat 
+he can take his own chair if he want 
+the green chair 
+let me have the green chair 
+woofwoof 
+we think dog do not like person to go in the chair 
+hm 
+knock 
+knock 
+hm 
+nope 
+maybe I could go back in that box 
+he want to go in that box 
+yeah 
+Harold hide 
+you get those you get Maude please 
+please 
+yeah 
+no he be hide 
+he be angry 
+no I do not want to come out I 
+tire 
+I want to sleep 
+yeah 
+no I have my dinner 
+this kid could come to the table 
+
+tokens  samples    ttr     st.dev      D
+  35      100    0.7769    0.065     47.330
+  36      100    0.7858    0.061     51.902
+  37      100    0.7841    0.054     52.665
+  38      100    0.7737    0.064     50.253
+  39      100    0.7738    0.062     51.634
+  40      100    0.7728    0.058     52.554
+  41      100    0.7646    0.056     50.923
+  42      100    0.7650    0.061     52.297
+  43      100    0.7477    0.058     47.632
+  44      100    0.7470    0.048     48.537
+  45      100    0.7516    0.057     51.154
+  46      100    0.7341    0.059     46.624
+  47      100    0.7351    0.056     47.940
+  48      100    0.7329    0.052     48.270
+  49      100    0.7353    0.061     50.045
+  50      100    0.7180    0.050     45.702
+
+D: average = 49.716; std dev. = 2.210
+D_optimum     <49.58; min least sq val = 0.001> 
+
+tokens  samples    ttr     st.dev      D
+  35      100    0.7920    0.057     52.775
+  36      100    0.7783    0.057     49.193
+  37      100    0.7851    0.070     53.076
+  38      100    0.7787    0.069     52.055
+  39      100    0.7633    0.064     48.009
+  40      100    0.7635    0.060     49.297
+  41      100    0.7685    0.060     52.312
+  42      100    0.7552    0.056     48.938
+  43      100    0.7528    0.061     49.286
+  44      100    0.7350    0.058     44.849
+  45      100    0.7411    0.048     47.735
+  46      100    0.7480    0.053     51.081
+  47      100    0.7381    0.054     48.879
+  48      100    0.7302    0.048     47.433
+  49      100    0.7337    0.052     49.517
+  50      100    0.7272    0.057     48.462
+
+D: average = 49.556; std dev. = 2.145
+D_optimum     <49.42; min least sq val = 0.001> 
+
+tokens  samples    ttr     st.dev      D
+  35      100    0.7837    0.062     49.696
+  36      100    0.7842    0.057     51.283
+  37      100    0.7778    0.060     50.383
+  38      100    0.7716    0.063     49.520
+  39      100    0.7703    0.060     50.357
+  40      100    0.7552    0.062     46.611
+  41      100    0.7632    0.065     50.415
+  42      100    0.7614    0.057     51.034
+  43      100    0.7488    0.058     48.002
+  44      100    0.7423    0.056     47.032
+  45      100    0.7542    0.054     52.076
+  46      100    0.7400    0.056     48.442
+  47      100    0.7334    0.060     47.413
+  48      100    0.7302    0.053     47.433
+  49      100    0.7257    0.057     47.043
+  50      100    0.7206    0.050     46.462
+
+D: average = 48.950; std dev. = 1.793
+D_optimum     <48.84; min least sq val = 0.000> 
+
+VOCD RESULTS SUMMARY
+====================
+   Types,Tokens,TTR:  <122,392,0.311224>
+  D_optimum  values:  <49.58, 49.42, 48.84>
+  D_optimum average:  49.28

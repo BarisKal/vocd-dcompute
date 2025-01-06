@@ -1,34 +1,26 @@
 import random
 import math
 from typing import List
-from dataclasses import dataclass
-
-test_string = """
-Once there was a kind man. He had a wife and a daughter. His wife loved him very much, and so did his daughter. One day the man's wife died. He was very, very sad.
-The man wanted a new wife. His next wife was not kind at all. She was very cruel. She had two ugly daughters who were also very mean.
-Once there was a kind man. He had a wife and a daughter. His wife loved him very much, and so did his daughter. One day the man's wife died. He was very, very sad.
-The man wanted a new wife. His next wife was not kind at all. She was very cruel. She had two ugly daughters who were also very mean.
-Once there was a kind man. He had a very loving wife. He had a young daughter who was also just like her mother. One day the man's wife died, and he was very sad.
-The wife did not like her new daughter, who was kind and pretty. So she made her work hard. The girl scrubbed dishes. She scrubbed floors. She cleaned the fireplaces. Her sisters made fun of her and called her 'ash girl', or Cinderella.
-Cinderella's sisters had fine rooms with soft beds. But Cinderella had a cold room in the attic, and her bed was made of straw.
-"""
+import matplotlib.pyplot as plt
 
 
-def find_min_d(d_av, nt_tuples):
+def find_min_d(d_av, nt_dict):
     """
     Find the value of d that minimizes the least squares difference
     between the t-equation and a set of <n,t> values.
 
     Parameters:
     d_av (float): The seeded d value.
-    nt_tuples (list): List of dictionaries containing 'N' and 'T' values.
+    nt_dict (list of dict): List of dictionaries containing 'N' and 'T' values.
 
     Returns:
     tuple: The value of D for which the least squares difference is a minimum,
            and the minimum least squares difference.
     """
+    index = 0
+
     stepsize = 0.001
-    diff = d_least_sq(d_av, nt_tuples) - d_least_sq(d_av - stepsize, nt_tuples)
+    diff = d_least_sq(d_av, nt_dict) - d_least_sq(d_av - stepsize, nt_dict)
 
     if diff > 0:
         k = -1
@@ -36,42 +28,50 @@ def find_min_d(d_av, nt_tuples):
         k = 1
     else:
         # if k == 0
-        return d_av, d_least_sq(d_av, nt_tuples)
+        return d_av, d_least_sq(d_av, nt_dict)
 
     prev_d_least_sq = d_av
-    for d in [d_av + k * stepsize * i for i in range(int(2 * d_av / stepsize))]:
-        next_ls = d_least_sq(d, nt_tuples)
+    d = d_av
+    while d > 0 and d < 2 * d_av:
+        print(index, d)
+        next_ls = d_least_sq(d, nt_dict)
         if prev_d_least_sq < next_ls:
+            print("Breaking at", index, d, d_av, prev_d_least_sq, next_ls)
             break
+
         prev_d_least_sq = next_ls
+        index += 1
+        d += k * 0.001
+
+    print(d_av, d)
 
     return d, prev_d_least_sq
 
 
-def d_least_sq(d, nt_tuples):
+def d_least_sq(d, nt_dict):
     """
     Calculate the least squares difference for a given d value.
 
     Parameters:
     d (float): The d value.
-    nt_tuples (list): List of dictionaries containing 'N' and 'T' values.
+    nt_dict (list): List of dictionaries containing 'N' and 'T' values.
 
     Returns:
     float: The least squares difference.
     """
-    return sum((nt["T"] - t_eqn(d, nt["N"])) ** 2 for nt in nt_tuples)
+    return sum((nt["TTR"] - ttr_eqn(d, nt["N"])) ** 2 for nt in nt_dict)
 
 
-def t_eqn(d, n):
+def ttr_eqn(d, n):
     """
-    Calculate the t value for a given d and n.
+    Calculate the ttr value for a given d and n.
 
     Parameters:
     d (float): The d value.
     n (int): The n value.
 
     Returns:
-    float: The t value.
+    float: The ttr value.
     """
     x = math.sqrt(1 + (2 * n) / d) - 1
     return (d / n) * x
@@ -159,8 +159,8 @@ def d_compute(
         nt_dict = []
 
         for N in range(from_d, to_d + 1, incr):
-            T, SD = average_ttr(token_seq, tkns_in_seq, N, no_samples)
-            nt_dict.append({"N": N, "T": T, "SD": SD, "D": d_eqn(N, T)})
+            TTR, SD = average_ttr(token_seq, tkns_in_seq, N, no_samples)
+            nt_dict.append({"N": N, "TTR": TTR, "SD": SD, "D": d_eqn(N, TTR)})
 
         # Count in nt_dict if D is 0 and discard it while calculating the average of D
         # Usually D shouldn't be exactly 0 but in the original implementation it was defined. Probably to catch edge cases.
@@ -184,6 +184,10 @@ def d_compute(
 
 
 if __name__ == "__main__":
+
+    # Sample text from \clan\examples\transcripts\ne32\68.cha
+    test_string = """what be in these box oh what be in it yeah ahhah that be just like mine at home yeah let us read it like mine yeah Frannie haha yeah yeah uh yeah I there ahhah yeah here be one for you I have Cookie_Monster my name be Cookie_Monster and I eat cookie nope I do not yeah except they go up and down hm yup moo yeah yeah oh oh we can draw thing on paper oh there we get orange orange no a mouth that could be the lady have the on how about you draw the lady with the hat no make that big big that big here be some blue that big oh yeah I want to draw her lip she will sing with no you make the lip right here no right here yeah she be sing with open yeah yeah no they be all do yeah I want to make that lady she be sing on tv I want to do the lady too that one no you do it no you do it no I want to do that one this be so heavy oh that look like mine too nope in here yup it do okay who be home in here Maude right here okay she want to go in the chair a chair on the table table table table table table that be my seat you guy I want to sit in them nope a car that be mine no he where be his seat he be get angry too woofwoof where be my chair I want vroom there can not reach the chair there who take my chair in that chair you do not believe it I do not believe it where be my seat he can take his own chair if he want the green chair let me have the green chair woofwoof we think dog do not like person to go in the chair hm knock knock hm nope maybe I could go back in that box he want to go in that box yeah Harold hide you get those you get Maude please please yeah no he be hide he be angry no I do not want to come out I tire I want to sleep yeah no I have my dinner this kid could come to the table"""
+
     splitted_text = test_string.split(" ")
-    mydmin = d_compute(splitted_text, len(splitted_text), 35, 50, 1, 100)
-    print(mydmin)
+    d_optimum_avg = d_compute(splitted_text, len(splitted_text), 35, 50, 1, 100)
+    print("D optimum average: " + str(d_optimum_avg))
